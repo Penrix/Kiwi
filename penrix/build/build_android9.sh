@@ -6,6 +6,10 @@ if [[ $# -ne 2 ]]; then
 fi
 kiwi="$(cd "$1" && pwd)"
 chromium="$(cd "$2" && pwd)"
+# A bootstrap-installed depot_tools PATH does not survive across GitHub Actions steps.
+if [[ -d "$(dirname "$chromium")/depot_tools" ]]; then
+  export PATH="$(dirname "$chromium")/depot_tools:$PATH"
+fi
 for tool in python3 gclient gn autoninja; do
   command -v "$tool" >/dev/null || { echo "Missing prerequisite: $tool" >&2; exit 2; }
 done

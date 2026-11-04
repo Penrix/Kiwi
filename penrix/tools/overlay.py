@@ -69,7 +69,14 @@ def plan(kiwi: Path, chromium: Path) -> list[tuple[Path, Path]]:
                 raise BaselineError(f"Refusing to copy symlink from overlay: {path}")
             if not path.is_file():
                 continue
-            target = chromium / path.relative_to(kiwi)
+            relative = path.relative_to(kiwi)
+            target = chromium / relative
+            # A symlink in an ancestor directory could otherwise escape this tree.
+            parent = chromium
+            for component in relative.parts[:-1]:
+                parent = parent / component
+                if parent.is_symlink():
+                    raise BaselineError(f"Refusing Chromium symlink directory: {parent}")
             if target.is_symlink() or (target.exists() and not target.is_file()):
                 raise BaselineError(f"Refusing nonregular Chromium target: {target}")
             if not target.exists() or not filecmp.cmp(path, target, shallow=False):
