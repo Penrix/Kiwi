@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+  "name": "Penrix Android MV2 compatibility probe",
+  "version": "0.1.0",
+  "description": "Tests MV2 background webRequestBlocking, content scripts, browser_action popup and storage.",
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "https://example.com/*"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://example.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_action": {
+    "default_title": "Penrix MV2 probe",
+    "default_popup": "popup.html"
+  }
+}
