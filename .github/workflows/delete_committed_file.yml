@@ -1,27 +1,17 @@
-name: 'Any branch: Delete a committed file'
-
+# Upstream Kiwi maintenance automation disabled in Penrix fork.
+# Original workflow delete_committed_file.yml is not part of the independent pinned-105 development path.
+# Original workflow may rewrite version history or force-push protected source branches.
+name: 'Disabled upstream Kiwi workflow: delete_committed_file.yml'
 on:
   workflow_dispatch:
-    inputs:
-      filename:
-        description: 'The filename to delete (all history will be deleted for this file)'     
-        required: true
-
+permissions:
+  contents: read
 jobs:
-  delete:
+  notice:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-        
-      - name: Setting-up GitHub username
+      - name: Explain migration
         run: |
-          git config --global user.email "github@actions"
-          git config --global user.name "Repository manager"
-
-      - name: Deleting file from history
-        run: |
-          git filter-branch --force --index-filter "git rm --cached --ignore-unmatch ${{ github.event.inputs.filename }}" --prune-empty --tag-name-filter cat -- --all
-      
-      - run: git push --force --all
+          echo 'This inherited upstream maintenance workflow is disabled on Penrix/Kiwi.'
+          echo 'Use Penrix source checks and independent build documentation.'
+          exit 1
