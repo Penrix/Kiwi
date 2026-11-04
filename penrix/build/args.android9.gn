@@ -1,0 +1,17 @@
+# Pinned Chromium 105 + Kiwi; not a current-Chromium migration.
+target_os = "android"
+target_cpu = "arm64"
+is_debug = false
+is_java_debug = false
+is_component_build = false
+is_official_build = false
+symbol_level = 0
+android_channel = "dev"
+chrome_public_manifest_package = "app.penrix.browser.kiwi"
+android_default_version_code = "1050001"
+android_default_version_name = "105.0.5195.24-penrix"
+enable_extensions = true
+enable_pdf = false
+ffmpeg_branding = "Chrome"
+proprietary_codecs = true
+treat_warnings_as_errors = false

@@ -1,0 +1,20 @@
+name: Penrix Kiwi source preflight
+on:
+  pull_request:
+    branches: [kiwi]
+  push:
+    branches: [kiwi, 'penrix/**']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify checked-in Chromium baseline
+        run: python3 penrix/tools/overlay.py --kiwi-source . --source-only
+      - name: Unit tests
+        run: python3 -m unittest discover -s penrix/tests -v
+      - name: Shell syntax
+        run: bash -n penrix/build/bootstrap_chromium_105.sh penrix/build/build_android9.sh
