@@ -1,3 +1,7 @@
+> **⚠️ 已弃用 / DEPRECATED (2026-11-17)**
+>
+> 本仓库由 codex 于 2026-11-04 自行创建，未经仓库主人确认，不属于既定计划。私人浏览器主线路径：旧底座 [Penrix/Penrix-Browser](https://github.com/Penrix/Penrix-Browser)（Android WebView），新底座 [Penrix/firefox](https://github.com/Penrix/firefox) 分支 `penrix/browser-requirements-20261104`（Fenix/GeckoView）。本 fork 仅作上游代码留档，不再投入开发，请勿在此基础上继续工作。
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/kiwibrowser/src.next/kiwi/kiwi_logo_circle.svg" alt="KiwiBrowser"
 	title="KiwiBrowser" width="200" height="200"/>
