@@ -1,3 +1,5 @@
+> **⚠️ 已弃用 / DEPRECATED (2026-11-17)** — 本仓库为上游 Kiwi 代码留档，非既定计划的一部分。私人浏览器主线见 [Penrix/Penrix-Browser](https://github.com/Penrix/Penrix-Browser) 与 [Penrix/firefox](https://github.com/Penrix/firefox)（分支 `penrix/browser-requirements-20261104`）。请勿在此基础上继续工作。
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/kiwibrowser/src.next/kiwi/kiwi_logo_circle.svg" alt="KiwiBrowser"
 	title="KiwiBrowser" width="200" height="200"/>
